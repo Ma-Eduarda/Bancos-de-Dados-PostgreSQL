@@ -33,6 +33,9 @@ foreign key(id_dvd) references DVD(id_dvd)
 insert into DVD (titulo, genero, duracao, situacao)
 values ('X-Men', 'Ação', '02:30:00', 'alugado');
 
+insert into DVD (titulo, genero, duracao, situacao)
+values ('Mario', 'Animação', '02:10:00', 'alugado');
+
 insert into cliente (nome, cpf, data_nasc, sexo, salario)
 values('João', '8245738', '1979-10-02', 'M', '1500.00');
 
@@ -42,8 +45,10 @@ values('Maria', '8245738', '1989-10-02', 'F', '1500.00');
 insert into locacoes (id_cliente, id_dvd, data)
 values(1, 1, '2025-02-20');
 
+insert into locacoes (id_cliente, id_dvd, data)
+values(2, 2, '2025-02-20');
+
 
 select * from DVD;
 select * from cliente;
 select * from locacoes;
-
