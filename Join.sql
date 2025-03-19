@@ -35,3 +35,6 @@ join empregado e on c.id_cidade = e.id_cidade group by c.nome order by quantidad
 select e.nome as empregado from empregado e
 join departamento d on e.id_departamento = d.id_departamento
 where e.id_cidade != d.id_cidade;
+
+
+
