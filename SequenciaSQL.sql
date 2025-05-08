@@ -22,11 +22,14 @@ create sequence aluno_id_seq start 1;
 insert into professor values (nextval('professor_id_seq'), 'ana');
 insert into professor values (nextval('professor_id_seq'), 'joão');
 
+insert into professor values (nextval('professor_id_seq'), 'Julia');
+
 insert into curso values (nextval('curso_id_seq'), 'TI', 1);
 insert into curso values (nextval('curso_id_seq'), 'TSI', 2);
 
 insert into aluno values (nextval('aluno_id_seq'), 'carlos', 1);
 insert into aluno values (nextval('aluno_id_seq'), 'maria', 2);
+
 
 select setval('professor_id_seq', 50);
 select setval('curso_id_seq', 100);
