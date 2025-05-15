@@ -33,20 +33,20 @@ create table consultas (
     foreign key (codp) references pacientes(codp)
 );
 
-insert into ambulatorios values
+insert into ambulatorios (nroa, andar, capacidade) values
 (1, 2, 10),
 (2, 3, 15);
 
-insert into medicos values
+insert into medicos (codm, cpf, nome, idade, cidade, especialidade, nroa) values
 (101, '11111111111', 'ana silva', 45, 'joão pessoa', 'cardiologia', 1),
 (102, '22222222222', 'pedro silva', 50, 'campina grande', 'pediatria', 2),
 (103, '33333333333', 'joão silva', 38, 'guarabira', 'dermatologia', 1);
 
-insert into pacientes values
+insert into pacientes (codp, cpf, nome, idade, cidade, doenca) values
 (201, '99999999999', 'daniel silva', 30, 'joão pessoa', 'gripe'),
 (202, '88888888888', 'maria silva', 25, 'campina grande', 'alergia');
 
-insert into consultas values
+insert into consultas (codm, codp, data, hora)values
 (101, 201, '2025-05-10', '08:00:00'),
 (102, 202, '2025-05-10', '09:30:00');
 
@@ -85,4 +85,8 @@ select
 from consultas c
 join pacientes p on c.codp = p.codp
 join medicos m on c.codm = m.codm;
-  
+
+select * from ambulatorios;
+select * from medicos; 
+select * from pacientes; 
+select * from datas;
