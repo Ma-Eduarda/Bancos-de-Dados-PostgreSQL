@@ -114,3 +114,16 @@ INSERT INTO Entrega (Hora, Data, NumVen, Placa, CodMot) VALUES
 ('10:00', '2025-04-20', 1, 'ABC1234', 1),
 ('14:00', '2025-04-21', 2, 'DEF5678', 2),
 ('09:00', '2025-04-22', 3, 'GHI9012', 3);
+
+select v.nome "Nome do Vendedor", p.nome "Produto Vendido", iv.qtd, ve.valor_total "Valor da venda"
+from item_venda iv
+join produto p on iv.codpro = p.codpro
+join venda ve on iv.numven = ve.numven
+join vendedor v on ve.codvdd = v.codvdd;
+
+
+select c.nome, p.nome produto, p.preco, iv.qtd, v.valor_total
+from cliente c
+join venda v on v.codcli = c.codcli
+join item_venda iv on v.numven = iv.numven
+join produto p on iv.codpro = p.codpro;
