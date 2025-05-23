@@ -50,38 +50,26 @@ insert into consultas (codm, codp, data, hora)values
 (101, 201, '2025-05-10', '08:00:00'),
 (102, 202, '2025-05-10', '09:30:00');
 
+
 create view vw_medico_paciente_hora as
-select 
-    m.nome as nome_medico,
-    p.nome as nome_paciente,
-    c.hora
+select m.nome as nome_medico, p.nome as nome_paciente, c.hora
 from consultas c
 join medicos m on c.codm = m.codm
 join pacientes p on c.codp = p.codp;
 
 create view vw_hora_andar_medico as
-select 
-    c.hora,
-    a.andar,
-    m.codm
+select c.hora, a.andar, m.codm
 from consultas c
 join medicos m on c.codm = m.codm
 join ambulatorios a on m.nroa = a.nroa;
 
-create view vw_medico_consultas_completo as
-select 
-    m.nome as nome_medico,
-    c.data,
-    c.hora
+create view vw_medico_consultas as
+select m.nome as nome_medico, c.data, c.hora
 from medicos m
 left join consultas c on m.codm = c.codm;
 
 create view vw_dados_paciente_medico_ambulatorio as
-select 
-    p.idade as idade_paciente,
-    p.doenca,
-    m.nome as nome_medico,
-    m.nroa as cod_ambulatorio
+select p.idade as idade_paciente, p.doenca, m.nome as nome_medico, m.nroa as cod_ambulatorio
 from consultas c
 join pacientes p on c.codp = p.codp
 join medicos m on c.codm = m.codm;
@@ -90,3 +78,5 @@ select * from ambulatorios;
 select * from medicos; 
 select * from pacientes; 
 select * from datas;
+
+select * from vw_dados_paciente_medico_ambulatorio;
