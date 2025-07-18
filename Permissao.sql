@@ -25,9 +25,9 @@ create role gerente;
 create role vendedor;
 create role estagiario;
 
-
-grant select, insert, update, delete on clientes, produtos, pedidos to gerente;
-grant select, insert on clientes, produtos, pedidos to vendedor;
+grant select, insert, update, delete on clientes, produtos to gerente;
+GRANT USAGE, SELECT ON SEQUENCE clientes_id_seq to gerente, vendedor;
+grant select, insert on clientes, produtos to vendedor;
 grant select on clientes to estagiario;
 
 create role joao login password '123';
@@ -39,20 +39,19 @@ grant vendedor to maria;
 grant estagiario to pedro;
 
 
--- logado como gerente 
+-- gerente 
 -- insert into clientes (nome, cpf) values ('julia', '33333333333');
 -- update clientes set nome = 'ana maria' where id = 1;
 -- delete from pedidos where id = 1;
--- select * from pedidos;
+-- select * from clientes;
 
--- logado como vendedor
+-- vendedor
 -- insert into clientes (nome, cpf) values ('alan', '44444444444');
 -- select * from produtos;
 -- update clientes set nome = 'carlos jr' where id = 2;  
--- delete from pedidos where id = 1;  -- deve falhar
+-- delete from clientes where id = 3;  
 
--- logado como estagiario 
+-- estagiario 
 -- select * from clientes; 
 -- insert into clientes (nome, cpf) values ('teste', '55555555555');  
--- select * from produtos;  -- deve falhar
--- insert into pedidos (cliente_id, produto_id, quantidade) values (3, 3, 1);  
+-- select * from produtos;  
